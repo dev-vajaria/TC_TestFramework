@@ -475,3 +475,5 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/twincat3,visualstudio
 
+
+*.compiled-library-ge33
