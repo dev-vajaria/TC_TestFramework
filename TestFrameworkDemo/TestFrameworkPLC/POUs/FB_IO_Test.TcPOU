@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_IO_Test" Id="{78c3d149-8dc7-455a-9ba7-05aae02297fd}" SpecialFunc="None">
+    <Declaration><![CDATA[{ attribute 'Name':='...' }
+{ attribute 'Timeout':='t#20s' }
+{ attribute 'Owner':='BACA_Apps' }
+{ attribute 'Category':='IO Check' }
+FUNCTION_BLOCK FB_IO_Test EXTENDS FB_TestCaseBase
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	fbIOtester : IO_ReadWrite.FB_IO_ReadWrite;			
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbIOtester.bExecute := TRUE; 
+fbIOtester.timerDelay := T#100MS;
+
+IF fbIOtester.bDone THEN
+	AssertTrue(bCondition := fbIOtester.bHighMatch, sMessage := 'Channel 1 failed HIGH check');
+	AssertTrue(bCondition := fbIOtester.bLowMatch, sMessage := 'Channel 1 failed LOW check');
+	fbIOtester.bExecute := FALSE;
+	Succeed();
+END_IF
+
+fbIOtester();
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

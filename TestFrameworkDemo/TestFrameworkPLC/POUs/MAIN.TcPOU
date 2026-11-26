@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{adcb8fba-986a-4ac3-b18f-4d3d4a72882f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fbT1 : FB_IO_Test;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Tc3_PlcTestFramework.F_CallTestController();]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
