@@ -1,4 +1,4 @@
-# TwinCAT Channel Verification Test Suite
+# TwinCAT IO Verification Test
 
 A TF1140 demo to check connection between an output and an input channel. 
 
